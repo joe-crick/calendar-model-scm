@@ -1,3 +1,4 @@
+(require racket/string)
 
 (define (get-twelve-hour-time slot)
   (if (<= slot 12) 12 (- slot 12)))
