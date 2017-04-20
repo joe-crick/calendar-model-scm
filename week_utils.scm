@@ -1,7 +1,15 @@
-;; The first three lines of this file were inserted by DrRacket. They record metadata
-;; about the language level of this file in a form that our tools can easily process.
-#reader(lib "htdp-beginner-reader.ss" "lang")((modname week_utils) (read-case-sensitive #t) (teachpacks ()) (htdp-settings #(#t constructor repeating-decimal #f #t none #f () #f)))
-(define (week-day-names)
-  (list "Sunday", "Monday", "Tuesday",
-        "Wednesday", "Thursday", "Friday", "Saturday"))
+#lang racket
 
+(require "adjust_days.scm")
+
+(define week-day-names
+  (list "Sunday" "Monday" "Tuesday"
+        "Wednesday" "Thursday" "Friday" "Saturday"))
+
+(define get-next-week 
+  (lambda (date [days-in-week 7])
+    (adjust-days date days-in-week)))
+
+(define get-next-week-day
+  (lambda (date [days-in-week 7])
+    (get-day(#:date (get-next-week date days-in-week)))))
