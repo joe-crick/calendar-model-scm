@@ -2,5 +2,4 @@
 
 (provide no-op)
 
-(define (no-op)
-  "Do nothing")
+(define (no-op) null)
